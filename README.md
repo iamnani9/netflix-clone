@@ -8,7 +8,7 @@ This project focuses on clean UI, real-world UX patterns, and scalable frontend 
 
 ---
 
-## 🚀 Live Demo (https://netflli.netlify.app/)
+## [🚀 Live Demo](https://netflli.netlify.app/)
 
 ---
 
