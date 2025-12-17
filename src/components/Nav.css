@@ -1,0 +1,122 @@
+.nav {
+  position: fixed;
+  top: 0;
+  padding: 20px;
+  width: 100%;
+  height: 60px; /* Reduced specific height dependency, mostly padding handled */
+  z-index: 1000;
+  /* Gradient for readability when transparent */
+  background: linear-gradient(to bottom, rgba(0,0,0,0.7) 0%, rgba(0,0,0,0) 100%);
+  transition: all 0.5s ease-in;
+}
+
+.nav__black {
+  background-color: #111;
+}
+
+.nav__contents {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 10px 20px; /* Adjust padding to match Netflix */
+  height: 60px;
+}
+
+.nav__logo {
+  position: fixed;
+  left: 20px;
+  width: 80px;
+  object-fit: contain;
+  cursor: pointer;
+}
+
+.nav__avatar {
+  position: fixed;
+  right: 20px;
+  width: 30px;
+  cursor: pointer;
+}
+
+/* Search Bar */
+.nav__search {
+    position: fixed;
+    right: 80px; /* Left of avatar */
+}
+
+.nav__searchInput {
+    background-color: rgba(0,0,0,0.5);
+    border: 1px solid white;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 0;
+    outline: none;
+    transition: width 0.5s;
+    width: 0px; /* Hidden by default or specific width */
+    width: 200px; /* Or visible */
+}
+
+.nav__searchInput::placeholder {
+    color: #ccc;
+}
+
+/* Nav Links */
+.nav__links {
+    position: fixed;
+    left: 120px; /* Right of logo */
+    display: flex;
+    gap: 20px;
+}
+
+.nav__link {
+    color: white;
+    cursor: pointer;
+    font-weight: 500;
+    transition: color 0.3s;
+}
+
+.nav__link:hover {
+    color: #e5e5e5;
+}
+
+@media (max-width: 600px) {
+    .nav__links {
+        display: none; /* Keep links hidden */
+    }
+
+    .nav__logo {
+        width: 60px; /* Smaller logo */
+    }
+
+    .nav__avatar {
+        width: 25px;
+        right: 10px;
+    }
+
+    .nav__search {
+        right: 50px; /* Adjust search icon position */
+    }
+    
+    .nav__searchInput {
+        width: 0px; /* Default hidden */
+        /* If active (clicked), JS toggles width, but here we rely on active/focus state or manual width toggle. 
+           In current implementation, width is toggled via CSS transition if we had a class. 
+           Current JS just sets value. Let's ensure if it has value/focus it expands properly or stays small. 
+           Actually current CSS .nav__searchInput:focus or active isn't set, it relies on hover or just being input.
+           Current Implementation: .nav__searchInput { width: 200px; ... } in Line 59.
+           Wait, line 58/59 has conflicting width. Line 58 says 0px, 59 says 200px. 
+           The user's code had `width: 200px` active. I'll stick to making sure it fits.
+        */
+        width: 150px; /* Smaller width on mobile */
+    }
+}
+
+/* Responsive adjustments */
+@media (min-width: 600px) {
+    .nav__logo {
+        width: 100px; /* Larger logo on desktop */
+    }
+}

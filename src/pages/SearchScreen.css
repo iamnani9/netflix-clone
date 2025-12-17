@@ -1,0 +1,49 @@
+.searchScreen {
+    min-height: 100vh;
+    background-color: #111;
+    color: white;
+    padding-top: 80px; /* Space for Navbar */
+}
+
+.searchScreen__results {
+    padding: 20px;
+}
+
+.searchScreen__results > h2 {
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    font-weight: 500;
+}
+
+.searchScreen__grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+}
+
+.searchScreen__poster {
+    max-height: 250px;
+    object-fit: contain;
+    transition: transform 450ms;
+    cursor: pointer;
+}
+
+.searchScreen__poster:hover {
+    transform: scale(1.08);
+}
+
+.searchScreen__noResults {
+    margin-top: 50px;
+    color: gray;
+}
+
+@media (max-width: 768px) {
+    .searchScreen__results > h2 {
+        font-size: 1.2rem;
+    }
+    
+    .searchScreen__poster {
+        max-height: 150px; /* Smaller posters on mobile to fit more or look proportional */
+    }
+}

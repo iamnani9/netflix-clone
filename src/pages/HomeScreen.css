@@ -1,0 +1,4 @@
+.homeScreen {
+    /* Main background handled by global body, but ensure coverage */
+    min-height: 100vh;
+}
